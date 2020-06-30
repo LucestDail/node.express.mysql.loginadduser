@@ -64,6 +64,18 @@ READ IT FIRST AND ANYTHING YOU WOULD LIKE TO CONTACT ME, MAIL IT TO DHTMDGUSSKSM
                 B. Remove listuser router because it is not nessary for normal user
         4-1-4. ETC
                 A. none
+    4-2. 2020. 6. 30 18:05(KR)
+        4-1-1. Modifiy
+                A. Change main frame code for modulation
+        4-1-2. Add
+                A. Add module file(main_config, main_user)
+                    - main_config : setting value(DB, router(working on), and so on)
+                    - main_user : singup, login, logout, authuser, add function
+                B. Add uploads file
+        4-1-3. Remove
+                A. none.
+        4-1-4. ETC
+                A. none
 
 </pre></h3>
 <br>

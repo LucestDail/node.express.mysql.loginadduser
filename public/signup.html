@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="UTF-8">
+   <title>Sign up</title>
+ </head>
+
+ <body>
+   <h1>Sign up process</h1>
+   <h2>you should write your ID, Password, Name, age, anything you want for us and your photo to certificate you</h2>
+   <br>
+    <form method="post" enctype="multipart/form-data" action="/process/signup">
+       <table>
+         <tr>
+           <td><label>ID</label></td>
+           <td><input type="text" name="id"></td>
+         </tr>
+         <tr>
+           <td><label>PASSWORD</label></td>
+           <td><input type="password" name="password"></td>
+         </tr>
+         <tr>
+           <td><label>NAME</label></td>
+           <td><input type="text" name="name"></td>
+         </tr>
+         <tr>
+             <td><label>BIRTH</label></td>
+             <td><input type="date" name="birth"></td>
+         </tr>
+           <tr>
+               <td><label>ANYTHING YOU WANT</label></td>
+               <td><input type="text" name="any" style="width:200px; height:50px;"></td>
+         </tr>
+           <tr>
+               <td><label>PHOTO</label></td>
+               <td><input type="file" name="photo"></td>
+           </tr>          
+        </table>
+       <input type="submit" value="SUBMIT" name="submit">
+    </form>
+ </body>
+</html>
