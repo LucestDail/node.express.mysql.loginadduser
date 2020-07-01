@@ -37,6 +37,8 @@ var upload = multer({
         fileSize: main_config.fileSize
     }
 });
+app.set('main_views', __dirname + '/main_views');
+app.set('view engine', 'ejs');
 
 var login = function(req,res){
     
@@ -63,12 +65,25 @@ var login = function(req,res){
             var username = rows[0].name;
             var userwish = rows[0].any;
             var userphoto = rows[0].photourl;
-            res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
-            res.write('<h1>login succesful</h1>');
-            res.write('<br><h1>welcome ' + username + '! your wish is ' + userwish);
-            res.write('<br><img src="' + userphoto + '"</p>')
-            res.write("<br><br><a href='/main/comm.html'> go to community page </a>");
-            res.end();
+            
+            
+            var context = {username:username,
+                          userwish:userwish,
+                          userphoto:userphoto
+                          };
+            req.app.render('login_success', context, function(err,html){
+                if(err){
+                    console.error("rendering err : " + err.stack);
+                    res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
+                    res.write('<h2>view rendering Error Occured</h2>');
+                    res.write('<h2>' + err.stack + '</h2>');
+                    res.end();
+                    return;
+                }
+                res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
+                console.log('rendered : ' + html);
+                res.end(html);
+            });
         }
         else{
             res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
@@ -83,8 +98,6 @@ var login = function(req,res){
         res.write('<div><p>database is not online</p></div>');
         res.end();
     }
-    
-    
 }
 
 var logout = function(req,res){
@@ -96,10 +109,12 @@ var logout = function(req,res){
                 throw err;
             console.log('destory session and log out succesful');
             res.redirect('/main/login.html');
+            res.end();
         });
     }else{
         console.log('not login yet');
         res.redirect('/main/login.html');
+        res.end();
     }
 }
 
@@ -166,10 +181,23 @@ var signup = function(req,res){
                     console.log('inserted %s rows', addedUser.affectedRows);
                     var insertId = addedUser.insertId;
                     console.log('added records id : %s', insertId);
-                    res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
-                    res.write('<h1>sign up succesful!!!</h1>');
-                    res.write("<br><br><a href='/main/login.html'> go to login page </a>");
-                    res.end();
+                    
+                    
+                    var context = {insertid:insertId};
+                    req.app.render('signup_success', context, function(err,html){
+                        if(err){
+                            console.error("rendering err : " + err.stack);
+                            res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
+                            res.write('<h2>view rendering Error Occured</h2>');
+                            res.write('<h2>' + err.stack + '</h2>');
+                            res.end();
+                            return;
+                        }
+                        res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
+                        console.log('rendered : ' + html);
+                        res.end(html);
+                    });
+                    
                 }else{
                     res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
                     res.write('<h1>signup failed</h1>');

@@ -39,7 +39,10 @@ app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
 // path set using path function(var path) main for html, uploads for file io
 app.use('/main', static(path.join(__dirname, 'main')));
-app.use('/uploads', static(path.join(__dirname, 'uploads')));
+app.set('main_views', __dirname + '/main_views');
+app.set('view engine', 'ejs');
+console.log('view engine set as ejs format');
+app.use(main_config.photosavepath, static(path.join(__dirname, main_config.photosavepoint)));
 //set cookieparser as middleware
 app.use(cookieParser());
 //set expressSession as middleware, it contained information from session object

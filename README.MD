@@ -50,7 +50,7 @@ READ IT FIRST AND ANYTHING YOU WOULD LIKE TO CONTACT ME, MAIL IT TO DHTMDGUSSKSM
 </pre></h3>
 <h3><pre>
 4. Code Status
-    4-1. 2020. 6. 27 12:45(KR)
+    4-1. 2020. 6. 27. 12:45(KR)
         4-1-1. Modifiy
                 A. Write README.MD file more specifically for use this code more easily
                 B. Change main frame code name(mission.js -> main.js)
@@ -64,7 +64,7 @@ READ IT FIRST AND ANYTHING YOU WOULD LIKE TO CONTACT ME, MAIL IT TO DHTMDGUSSKSM
                 B. Remove listuser router because it is not nessary for normal user
         4-1-4. ETC
                 A. none
-    4-2. 2020. 6. 30 18:05(KR)
+    4-2. 2020. 6. 30. 18:05(KR)
         4-1-1. Modifiy
                 A. Change main frame code for modulation
         4-1-2. Add
@@ -74,6 +74,18 @@ READ IT FIRST AND ANYTHING YOU WOULD LIKE TO CONTACT ME, MAIL IT TO DHTMDGUSSKSM
                 B. Add uploads file
         4-1-3. Remove
                 A. none.
+        4-1-4. ETC
+                A. none
+    4-3. 2020. 7. 1. 20:40(KR)
+        4-1-1. Modifiy
+                A. Change main_user code for adapting view template
+                B. Change main and main_user code which module code for require view module needed
+        4-1-2. Add
+                A. Add view template file(singup_success.ejs, login_success.ejs)
+                    - singup_success : singup html rendering view code written by ejs
+                    - login_success : login html rendering view code written by ejs
+        4-1-3. Remove
+                A. Remove listuser.html because i didn't make that function :)
         4-1-4. ETC
                 A. none
 
